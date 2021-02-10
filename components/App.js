@@ -2,8 +2,7 @@ import React from 'react';
 import { Switch, Route, Link } from 'react-router-dom';
 
 import Menu from './Menu';
-
-import PopularSongs from './PopularSongs';
+import PopularSongs from '../containers/popularSongsContainers';
 import StylesList from './StylesList';
 import Style from './Style';
 import Song from './Song';
@@ -28,7 +27,7 @@ export default function App() {
 				<Route exact path="/">
 					<PopularSongs />
 				</Route>
-				<Route exact path="/styles">
+				{/* <Route exact path="/styles">
 					<StylesList />
 				</Route>
 				<Route exact path="/styles/:styleName">
@@ -42,7 +41,7 @@ export default function App() {
 				</Route>
 				<Route exact path="/cart">
 					<Cart />
-				</Route>
+				</Route> */}
 			</Switch>
 		</div>
 	);
