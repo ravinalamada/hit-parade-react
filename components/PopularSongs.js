@@ -12,7 +12,7 @@ const SongsContainer = styled.ul`
 `;
 
 export default function PopularSongs({songs}) {
-  console.log(songs);
+  // console.log(songs);
 
 	function sortSongsByPopularity(songA, songB) {
 		const ratioA = songA.upvotes - songA.downvotes;

@@ -1,5 +1,6 @@
-import React, { useState, useContext } from 'react';
-import { Context } from './Context';
+import React from 'react';
+import {useSelector, useDispatch} from 'react-redux';
+import {addSong} from '../actions'
 import styled from 'styled-components';
 
 const FormStyles = styled.form`
@@ -22,34 +23,35 @@ const FormStyles = styled.form`
 	}
 `;
 
-// control inputs
-// input that is link to STATE
-// value, onChange
+export default function AddSong({
+  setTitle,
+  setArtist,
+  setPrice,
+  setStyle,
+  setLyrics,
+  title,
+  artist,
+  price,
+  style,
+  lyrics}) {
 
-export default function AddSong() {
-	const { styles, addSong } = useContext(Context);
-
-	const [title, setTitle] = useState('');
-	const [artist, setArtist] = useState('');
-	const [price, setPrice] = useState(0);
-	const [style, setStyle] = useState('');
-	const [lyrics, setLyrics] = useState('');
+  const styles = useSelector(state => state.styles)
+  const dispatch = useDispatch();
 
 	function handleSubmit(e) {
 		e.preventDefault();
 		const newSong = {
 			id: Date.now(),
-			title,
-			artist,
-			price,
-			style,
-			lyrics,
+			title: title,
+			artist: artist,
+			price: price,
+			style: style,
+			lyrics: lyrics,
 			upvotes: 0,
 			downvotes: 0,
 			isFavorited: false,
 		};
-		console.log(newSong);
-		addSong(newSong);
+		dispatch(addSong(newSong))  ;
 		// reset the form... TODO: find a more elegant way.
 		setTitle('');
 		setArtist('');
@@ -57,6 +59,7 @@ export default function AddSong() {
 		setStyle('');
 		setLyrics('');
 	}
+
 
 	return (
 		<div>
@@ -66,7 +69,10 @@ export default function AddSong() {
 					placeholder="Title"
 					required
 					value={title}
-					onChange={e => setTitle(e.currentTarget.value)}
+					onChange={e => {
+            if(setStyle) {
+            setTitle(e.currentTarget.value)}
+          }}
 				/>
 				<input
 					placeholder="Artist"

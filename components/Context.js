@@ -45,31 +45,6 @@ function ContextProvider({ children }) {
 		setSongs(updatedSongs);
 	}
 
-	function upvoteSong(songId) {
-		const updatedSongs = songs.map(song => {
-			if (song.id === songId) {
-				return {
-					...song,
-					upvotes: song.upvotes + 1,
-				};
-			}
-			return song;
-		});
-		setSongs(updatedSongs);
-	}
-
-	function downvoteSong(songId) {
-		const updatedSongs = songs.map(song => {
-			if (song.id === songId) {
-				return {
-					...song,
-					downvotes: song.downvotes + 1,
-				};
-			}
-			return song;
-		});
-		setSongs(updatedSongs);
-	}
 
 	function addToCart(song) {
 		// push in an immutable way

@@ -6,14 +6,14 @@ import PopularSongs from '../containers/popularSongsContainers';
 import StylesList from './StylesList';
 import Style from './Style';
 import Song from './Song';
-import AddSong from './AddSong';
+import AddSongContainer from '../containers/addSongsContainer';
 import Cart from './Cart';
 
 // - / (PopularSongs.js)
 // - /styles (StylesList.js)
 // - /styles/:styleName (Style.js)
 // - /song/:songId (Song.js)
-// - /add (AddSong.js)
+// - /add (AddSongContainer.js)
 // - /cart (Cart.js)
 
 export default function App() {
@@ -27,7 +27,7 @@ export default function App() {
 				<Route exact path="/">
 					<PopularSongs />
 				</Route>
-				{/* <Route exact path="/styles">
+				<Route exact path="/styles">
 					<StylesList />
 				</Route>
 				<Route exact path="/styles/:styleName">
@@ -37,11 +37,11 @@ export default function App() {
 					<Song />
 				</Route>
 				<Route exact path="/add">
-					<AddSong />
+					<AddSongContainer />
 				</Route>
 				<Route exact path="/cart">
 					<Cart />
-				</Route> */}
+				</Route>
 			</Switch>
 		</div>
 	);

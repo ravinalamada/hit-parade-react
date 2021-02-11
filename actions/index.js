@@ -4,6 +4,12 @@ export function songs(song) {
     payload: song
   }
 }
+export function styles(song) {
+  return {
+    type: 'STYLES',
+    payload: song
+  }
+}
 export function favoriteSong(songId) {
   return {
     type: 'FAVORITE_SONGS',
@@ -49,5 +55,36 @@ export function removeCartItem(songId) {
 export function emptyCart() {
   return {
     type: 'EMPTY_CART'
+  }
+}
+
+export function setTitle(title) {
+  return {
+    type: 'SET_TITLE',
+    payload: title
+  }
+}
+export function setArtist(artist) {
+  return {
+    type: 'SET_ARTIST',
+    payload: artist
+  }
+}
+export function setPrice(price) {
+  return {
+    type: 'SET_PRICE',
+    payload: price
+  }
+}
+export function setStyle(style) {
+  return {
+    type: 'SET_STYLE',
+    payload: style
+  }
+}
+export function setLyrics(lyrics) {
+  return {
+    type: 'SET_LYRICS',
+    payload: lyrics
   }
 }

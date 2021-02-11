@@ -1,8 +1,7 @@
 import React, { useContext } from 'react';
 import styled from 'styled-components';
-import { Context } from './Context';
 import { useSelector, useDispatch } from 'react-redux';
-import {upvoteSong} from '../actions/index'
+import {upvoteSong, downvoteSong, favoriteSong, addToCart, removeCartItem, } from '../actions/index'
 import { Link } from 'react-router-dom';
 
 import {
@@ -45,32 +44,26 @@ const SongItemStyle = styled.div`
 
 export default function SongItem({ song }) {
   const dispatch = useDispatch();
-	// const {
-	// 	favoriteSong,
-	// 	upvoteSong,
-	// 	downvoteSong,
-	// 	addToCart,
-	// 	cartItems,
-	// 	removeCartItem,
-	// } = useContext(Context);
-	// function showCartIcon() {
-	// 	const isAlreadyInCart = cartItems.some(item => item.id === song.id);
-	// 	if (isAlreadyInCart) {
-	// 		return <AiTwotoneShopping onClick={() => removeCartItem(song.id)} />;
-	// 	}
-	// 	return <AiOutlineShopping onClick={() => addToCart(song)} />;
-	// }
+  const cartItems = useSelector(state => state.cartItems)
+
+	function showCartIcon() {
+		const isAlreadyInCart = cartItems.some(item => item.id === song.id);
+		if (isAlreadyInCart) {
+			return <AiTwotoneShopping onClick={() => dispatch(removeCartItem(song.id))} />;
+		}
+		return <AiOutlineShopping onClick={() => dispatch(addToCart(song))} />;
+	}
 
 
-	// function showFavoriteIcon() {
-	// 	return song.isFavorited ? <AiFillHeart /> : <AiOutlineHeart />;
-	// }
+	function showFavoriteIcon() {
+		return song.isFavorited ? <AiFillHeart /> : <AiOutlineHeart />;
+	}
 
 	return (
 		<SongItemStyle>
-			{/* <div className="heart-icon" onClick={() => favoriteSong(song.id)}>
+			<div className="heart-icon" onClick={() => dispatch(favoriteSong(song.id))}>
 				{showFavoriteIcon()}
-			</div>  */}
+			</div>
 			<div>
 				<div className="song-title">{song.title}</div>
 				<div>{song.artist}</div>
@@ -79,9 +72,9 @@ export default function SongItem({ song }) {
 				{song.upvotes} <AiOutlineArrowUp onClick={() => dispatch(upvoteSong(song.id))} />
 			</div>
 			<div className="votes">
-				{song.downvotes} <AiOutlineArrowDown onClick={() => downvoteSong(song.id)} />
+				{song.downvotes} <AiOutlineArrowDown onClick={() => dispatch(downvoteSong(song.id))} />
 			</div>
-			{/* {showCartIcon()} */}
+			{showCartIcon()}
 			<div>
 				<Link to={`/song/${song.id}`}>
 				<AiOutlineEllipsis />

@@ -1,5 +1,6 @@
 import React, { useContext } from 'react';
-import { Context } from './Context';
+// import { Context } from './Context';
+import {useSelector} from 'react-redux';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 
@@ -17,7 +18,8 @@ const StylesContainer = styled.div`
 `;
 
 export default function StylesList() {
-	const { styles } = useContext(Context);
+  const styles = useSelector(state => state.styles)
+  console.log(styles);
 	return (
 		<div>
 			<h1>Styles list</h1>

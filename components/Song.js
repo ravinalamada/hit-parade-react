@@ -1,12 +1,12 @@
 import React, { useContext } from 'react';
 import { useParams, useHistory } from 'react-router-dom';
-import { Context } from './Context';
+import {useSelector} from 'react-redux';
 import { SongPreview } from './Style';
 import { AiOutlineArrowLeft } from 'react-icons/Ai';
 
 export default function Song() {
 	const { songId } = useParams();
-	const { songs } = useContext(Context);
+  const songs = useSelector(state => state.songs)
 	const history = useHistory();
 
 	const song = songs.find(song => song.id === songId);
