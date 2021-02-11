@@ -9,13 +9,6 @@ import Song from './Song';
 import AddSongContainer from '../containers/addSongsContainer';
 import Cart from './Cart';
 
-// - / (PopularSongs.js)
-// - /styles (StylesList.js)
-// - /styles/:styleName (Style.js)
-// - /song/:songId (Song.js)
-// - /add (AddSongContainer.js)
-// - /cart (Cart.js)
-
 export default function App() {
 	return (
 		<div>

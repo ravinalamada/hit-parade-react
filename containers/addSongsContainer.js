@@ -11,7 +11,6 @@ const mapToDispatch = {
 }
 
 function mapStateToProps(state){
-  console.log(state.addNewSongs);
   return {
     title: state.addNewSongs.title,
     artist: state.addNewSongs.artist,

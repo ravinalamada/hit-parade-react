@@ -19,7 +19,7 @@ const StylesContainer = styled.div`
 
 export default function StylesList() {
   const styles = useSelector(state => state.styles)
-  console.log(styles);
+
 	return (
 		<div>
 			<h1>Styles list</h1>

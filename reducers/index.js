@@ -1,5 +1,6 @@
 import { combineReducers } from 'redux';
 import songsData from '../songsData.json';
+import { defineState } from 'redux-localstore'
 
 const initialSongs = {
   title: '',
@@ -101,3 +102,4 @@ export const reducers = combineReducers({
   styles,
   addNewSongs,
 })
+

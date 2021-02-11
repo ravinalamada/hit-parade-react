@@ -9,7 +9,7 @@ export default function Song() {
   const songs = useSelector(state => state.songs)
 	const history = useHistory();
 
-	const song = songs.find(song => song.id === songId);
+	const song = songs.find(song => song.id == songId);
 
 	return (
 		<div>

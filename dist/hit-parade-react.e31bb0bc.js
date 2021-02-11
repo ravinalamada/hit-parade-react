@@ -56137,7 +56137,6 @@ function StylesList() {
   var styles = (0, _reactRedux.useSelector)(function (state) {
     return state.styles;
   });
-  console.log(styles);
   return /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement("h1", null, "Styles list"), /*#__PURE__*/_react.default.createElement(StylesContainer, null, styles.map(function (style) {
     return /*#__PURE__*/_react.default.createElement(_reactRouterDom.Link, {
       to: "/styles/".concat(style),
@@ -56145,177 +56144,7 @@ function StylesList() {
     }, "\uD83C\uDFA7 ", style);
   })));
 }
-},{"react":"node_modules/react/index.js","react-redux":"node_modules/react-redux/es/index.js","react-router-dom":"node_modules/react-router-dom/esm/react-router-dom.js","styled-components":"node_modules/styled-components/dist/styled-components.browser.esm.js"}],"songsData.json":[function(require,module,exports) {
-module.exports = [{
-  "id": "1606111765520",
-  "title": "Dream",
-  "artist": "Jami",
-  "style": "Pop",
-  "upvotes": 10,
-  "downvotes": 1,
-  "lyrics": "Dream Dream Dream On On ON!!!!! Dream Dream Dream On On ON!!!!!Dream Dream Dream On On ON!!!!!Dream Dream Dream On On ON!!!!!Dream Dream Dream On On ON!!!!!Dream Dream Dream On On ON!!!!!Dream Dream Dream On On ON!!!!!Dream Dream Dream On On ON!!!!!Dream Dream Dream On On ON!!!!!Dream Dream Dream On On ON!!!!!",
-  "price": 100,
-  "isFavorited": true
-}, {
-  "id": "1606112214653",
-  "title": "Red Wine",
-  "artist": "UB 40",
-  "style": "Reggae",
-  "upvotes": 5,
-  "downvotes": 1,
-  "lyrics": "Red, red wine goes to my head\n\t\tMakes me forget that I still need her so\n\t\tRed, red wine, it's up to you\n\t\tAll I can do I've done\n\t\tMemories won't go, memories won't go\n\t\tI'd have sworn that with time\n\t\tThoughts of you leave my head\n\t\tI was wrong, now I find\n\t\tJust one thing makes me forget\n\t\tRed, red wine, stay close to me\n\t\tDon't let me be alone\n\t\tIt's tearing apart my blue heart\n\t\tI'd have sworn that with time\n\t\tThoughts of you leave my head\n\t\tI was wrong, now I find\n\t\tJust one thing makes me forget\n\t\tRed, red wine, stay close to me\n\t\tDon't let me be alone\n\t\tIt's tearing apart my blue heart\n\t\tRed red wine, you make me feel so fine\n\t\tYou keep me rockin' all of the time\n\t\tRed red wine, you make me feel so grand\n\t\tI feel a million dollar when you're just in my hand\n\t\tRed red wine, you make me feel so sad\n\t\tAny\u2026",
-  "price": 100,
-  "isFavorited": true
-}, {
-  "id": "1606112367350",
-  "title": "Formidable",
-  "artist": "Stromae",
-  "style": "Pop",
-  "upvotes": 0,
-  "downvotes": 0,
-  "lyrics": "Formidable Formidable Formidable Formidable Formidable Formidable Formidable Formidable ",
-  "price": 200,
-  "isFavorited": false
-}];
-},{}],"components/Context.js":[function(require,module,exports) {
-"use strict";
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.ContextProvider = ContextProvider;
-exports.Context = void 0;
-
-var _react = _interopRequireWildcard(require("react"));
-
-var _songsData = _interopRequireDefault(require("../songsData.json"));
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-function _getRequireWildcardCache() { if (typeof WeakMap !== "function") return null; var cache = new WeakMap(); _getRequireWildcardCache = function () { return cache; }; return cache; }
-
-function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } if (obj === null || typeof obj !== "object" && typeof obj !== "function") { return { default: obj }; } var cache = _getRequireWildcardCache(); if (cache && cache.has(obj)) { return cache.get(obj); } var newObj = {}; var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor; for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) { var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null; if (desc && (desc.get || desc.set)) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } newObj.default = obj; if (cache) { cache.set(obj, newObj); } return newObj; }
-
-function _toConsumableArray(arr) { return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _unsupportedIterableToArray(arr) || _nonIterableSpread(); }
-
-function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
-
-function _iterableToArray(iter) { if (typeof Symbol !== "undefined" && Symbol.iterator in Object(iter)) return Array.from(iter); }
-
-function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) return _arrayLikeToArray(arr); }
-
-function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
-
-function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
-
-function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
-
-function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
-
-function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
-
-function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
-
-function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
-
-function _iterableToArrayLimit(arr, i) { if (typeof Symbol === "undefined" || !(Symbol.iterator in Object(arr))) return; var _arr = []; var _n = true; var _d = false; var _e = undefined; try { for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"] != null) _i["return"](); } finally { if (_d) throw _e; } } return _arr; }
-
-function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
-
-var Context = _react.default.createContext();
-
-exports.Context = Context;
-
-function ContextProvider(_ref) {
-  var children = _ref.children;
-
-  var _useState = (0, _react.useState)([]),
-      _useState2 = _slicedToArray(_useState, 2),
-      songs = _useState2[0],
-      setSongs = _useState2[1];
-
-  var _useState3 = (0, _react.useState)([]),
-      _useState4 = _slicedToArray(_useState3, 2),
-      cartItems = _useState4[0],
-      setCartItems = _useState4[1];
-
-  var _useState5 = (0, _react.useState)(['Pop', 'Salegy', 'Reggae', 'Rock', 'Folk', 'Rap']),
-      _useState6 = _slicedToArray(_useState5, 2),
-      styles = _useState6[0],
-      setStyles = _useState6[1];
-
-  (0, _react.useEffect)(function () {
-    // if there's something inside ls with an id of "songs", then use that.
-    var lsSongs = JSON.parse(localStorage.getItem('songs')); // otherwise, get the json
-
-    lsSongs ? setSongs(lsSongs) : setSongs(_songsData.default);
-    var lsCartItems = JSON.parse(localStorage.getItem('cartItems'));
-    lsCartItems && setCartItems(lsCartItems);
-  }, []);
-  (0, _react.useEffect)(function () {
-    localStorage.setItem('songs', JSON.stringify(songs));
-  }, [songs]);
-  (0, _react.useEffect)(function () {
-    localStorage.setItem('cartItems', JSON.stringify(cartItems));
-  }, [cartItems]); // everytime there's something changing on the songs state, update that to ls.
-
-  function favoriteSong(songId) {
-    // how should I modify the state here?
-    // recreate a WHOLE new state array
-    // we want to update the state in an IMMUTABLE WAY
-    var updatedSongs = songs.map(function (song) {
-      if (song.id === songId) {
-        return _objectSpread(_objectSpread({}, song), {}, {
-          isFavorited: !song.isFavorited
-        });
-      }
-
-      return song;
-    }); // set it into our state!
-
-    setSongs(updatedSongs);
-  }
-
-  function addToCart(song) {
-    // push in an immutable way
-    setCartItems(function (prevItems) {
-      return [].concat(_toConsumableArray(prevItems), [song]);
-    });
-  }
-
-  function addSong(song) {
-    setSongs(function (prevSongs) {
-      return [].concat(_toConsumableArray(prevSongs), [song]);
-    });
-  }
-
-  function removeCartItem(songId) {
-    var filteredCartItems = cartItems.filter(function (cartItem) {
-      return cartItem.id !== songId;
-    });
-    setCartItems(filteredCartItems);
-  }
-
-  function emptyCart() {
-    setCartItems([]);
-  }
-
-  return /*#__PURE__*/_react.default.createElement(Context.Provider, {
-    value: {
-      songs: songs,
-      styles: styles,
-      favoriteSong: favoriteSong,
-      upvoteSong: upvoteSong,
-      downvoteSong: downvoteSong,
-      addToCart: addToCart,
-      cartItems: cartItems,
-      addSong: addSong,
-      removeCartItem: removeCartItem,
-      emptyCart: emptyCart
-    }
-  }, children);
-}
-},{"react":"node_modules/react/index.js","../songsData.json":"songsData.json"}],"components/Style.js":[function(require,module,exports) {
+},{"react":"node_modules/react/index.js","react-redux":"node_modules/react-redux/es/index.js","react-router-dom":"node_modules/react-router-dom/esm/react-router-dom.js","styled-components":"node_modules/styled-components/dist/styled-components.browser.esm.js"}],"components/Style.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -56324,9 +56153,7 @@ Object.defineProperty(exports, "__esModule", {
 exports.default = Style;
 exports.SongPreview = void 0;
 
-var _react = _interopRequireWildcard(require("react"));
-
-var _Context = require("./Context");
+var _react = _interopRequireDefault(require("react"));
 
 var _reactRedux = require("react-redux");
 
@@ -56335,10 +56162,6 @@ var _reactRouterDom = require("react-router-dom");
 var _styledComponents = _interopRequireDefault(require("styled-components"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-function _getRequireWildcardCache() { if (typeof WeakMap !== "function") return null; var cache = new WeakMap(); _getRequireWildcardCache = function () { return cache; }; return cache; }
-
-function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } if (obj === null || typeof obj !== "object" && typeof obj !== "function") { return { default: obj }; } var cache = _getRequireWildcardCache(); if (cache && cache.has(obj)) { return cache.get(obj); } var newObj = {}; var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor; for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) { var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null; if (desc && (desc.get || desc.set)) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } newObj.default = obj; if (cache) { cache.set(obj, newObj); } return newObj; }
 
 function _templateObject2() {
   var data = _taggedTemplateLiteral(["\n\tbackground: #272343;\n\tpadding: 2rem;\n\tcolor: white;\n\th3 {\n\t\tmargin: 0;\n\t\tfont-size: 1.4rem;\n\t}\n"]);
@@ -56375,7 +56198,6 @@ function Style() {
   var songs = (0, _reactRedux.useSelector)(function (state) {
     return state.songs;
   });
-  console.log(songs); // const { songs } = useContext(Context);
 
   function createSongTemplate(song) {
     return /*#__PURE__*/_react.default.createElement(_reactRouterDom.Link, {
@@ -56398,7 +56220,7 @@ function Style() {
 
   return /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement("h1", null, "Style"), /*#__PURE__*/_react.default.createElement(SongPreviewContainer, null, showSongsFilteredByStyle()));
 }
-},{"react":"node_modules/react/index.js","./Context":"components/Context.js","react-redux":"node_modules/react-redux/es/index.js","react-router-dom":"node_modules/react-router-dom/esm/react-router-dom.js","styled-components":"node_modules/styled-components/dist/styled-components.browser.esm.js"}],"node_modules/react-icons/Ai/index.esm.js":[function(require,module,exports) {
+},{"react":"node_modules/react/index.js","react-redux":"node_modules/react-redux/es/index.js","react-router-dom":"node_modules/react-router-dom/esm/react-router-dom.js","styled-components":"node_modules/styled-components/dist/styled-components.browser.esm.js"}],"node_modules/react-icons/Ai/index.esm.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -72874,7 +72696,7 @@ function Song() {
   });
   var history = (0, _reactRouterDom.useHistory)();
   var song = songs.find(function (song) {
-    return song.id === songId;
+    return song.id == songId;
   });
   return /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement("h1", null, /*#__PURE__*/_react.default.createElement(_Ai.AiOutlineArrowLeft, {
     onClick: function onClick() {
@@ -73022,7 +72844,6 @@ var mapToDispatch = {
 };
 
 function mapStateToProps(state) {
-  console.log(state.addNewSongs);
   return {
     title: state.addNewSongs.title,
     artist: state.addNewSongs.artist,
@@ -73166,12 +72987,6 @@ var _Cart = _interopRequireDefault(require("./Cart"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-// - / (PopularSongs.js)
-// - /styles (StylesList.js)
-// - /styles/:styleName (Style.js)
-// - /song/:songId (Song.js)
-// - /add (AddSongContainer.js)
-// - /cart (Cart.js)
 function App() {
   return /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement(_reactRouterDom.Link, {
     to: "/"
@@ -73195,7 +73010,245 @@ function App() {
     path: "/cart"
   }, /*#__PURE__*/_react.default.createElement(_Cart.default, null))));
 }
-},{"react":"node_modules/react/index.js","react-router-dom":"node_modules/react-router-dom/esm/react-router-dom.js","./Menu":"components/Menu.js","../containers/popularSongsContainers":"containers/popularSongsContainers.js","./StylesList":"components/StylesList.js","./Style":"components/Style.js","./Song":"components/Song.js","../containers/addSongsContainer":"containers/addSongsContainer.js","./Cart":"components/Cart.js"}],"reducers/index.js":[function(require,module,exports) {
+},{"react":"node_modules/react/index.js","react-router-dom":"node_modules/react-router-dom/esm/react-router-dom.js","./Menu":"components/Menu.js","../containers/popularSongsContainers":"containers/popularSongsContainers.js","./StylesList":"components/StylesList.js","./Style":"components/Style.js","./Song":"components/Song.js","../containers/addSongsContainer":"containers/addSongsContainer.js","./Cart":"components/Cart.js"}],"songsData.json":[function(require,module,exports) {
+module.exports = [{
+  "id": "1606111765520",
+  "title": "Dream",
+  "artist": "Jami",
+  "style": "Pop",
+  "upvotes": 10,
+  "downvotes": 1,
+  "lyrics": "Dream Dream Dream On On ON!!!!! Dream Dream Dream On On ON!!!!!Dream Dream Dream On On ON!!!!!Dream Dream Dream On On ON!!!!!Dream Dream Dream On On ON!!!!!Dream Dream Dream On On ON!!!!!Dream Dream Dream On On ON!!!!!Dream Dream Dream On On ON!!!!!Dream Dream Dream On On ON!!!!!Dream Dream Dream On On ON!!!!!",
+  "price": 100,
+  "isFavorited": true
+}, {
+  "id": "1606112214653",
+  "title": "Red Wine",
+  "artist": "UB 40",
+  "style": "Reggae",
+  "upvotes": 5,
+  "downvotes": 1,
+  "lyrics": "Red, red wine goes to my head\n\t\tMakes me forget that I still need her so\n\t\tRed, red wine, it's up to you\n\t\tAll I can do I've done\n\t\tMemories won't go, memories won't go\n\t\tI'd have sworn that with time\n\t\tThoughts of you leave my head\n\t\tI was wrong, now I find\n\t\tJust one thing makes me forget\n\t\tRed, red wine, stay close to me\n\t\tDon't let me be alone\n\t\tIt's tearing apart my blue heart\n\t\tI'd have sworn that with time\n\t\tThoughts of you leave my head\n\t\tI was wrong, now I find\n\t\tJust one thing makes me forget\n\t\tRed, red wine, stay close to me\n\t\tDon't let me be alone\n\t\tIt's tearing apart my blue heart\n\t\tRed red wine, you make me feel so fine\n\t\tYou keep me rockin' all of the time\n\t\tRed red wine, you make me feel so grand\n\t\tI feel a million dollar when you're just in my hand\n\t\tRed red wine, you make me feel so sad\n\t\tAny\u2026",
+  "price": 100,
+  "isFavorited": true
+}, {
+  "id": "1606112367350",
+  "title": "Formidable",
+  "artist": "Stromae",
+  "style": "Pop",
+  "upvotes": 0,
+  "downvotes": 0,
+  "lyrics": "Formidable Formidable Formidable Formidable Formidable Formidable Formidable Formidable ",
+  "price": 200,
+  "isFavorited": false
+}];
+},{}],"node_modules/redux-localstore/dist/redux-localstore.umd.js":[function(require,module,exports) {
+var define;
+var global = arguments[3];
+(function (global, factory) {
+  typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports) :
+  typeof define === 'function' && define.amd ? define(['exports'], factory) :
+  (global = global || self, factory(global.index = {}));
+}(this, function (exports) { 'use strict';
+
+  function _defineProperty(obj, key, value) {
+    if (key in obj) {
+      Object.defineProperty(obj, key, {
+        value: value,
+        enumerable: true,
+        configurable: true,
+        writable: true
+      });
+    } else {
+      obj[key] = value;
+    }
+
+    return obj;
+  }
+
+  function ownKeys(object, enumerableOnly) {
+    var keys = Object.keys(object);
+
+    if (Object.getOwnPropertySymbols) {
+      var symbols = Object.getOwnPropertySymbols(object);
+      if (enumerableOnly) symbols = symbols.filter(function (sym) {
+        return Object.getOwnPropertyDescriptor(object, sym).enumerable;
+      });
+      keys.push.apply(keys, symbols);
+    }
+
+    return keys;
+  }
+
+  function _objectSpread2(target) {
+    for (var i = 1; i < arguments.length; i++) {
+      var source = arguments[i] != null ? arguments[i] : {};
+
+      if (i % 2) {
+        ownKeys(Object(source), true).forEach(function (key) {
+          _defineProperty(target, key, source[key]);
+        });
+      } else if (Object.getOwnPropertyDescriptors) {
+        Object.defineProperties(target, Object.getOwnPropertyDescriptors(source));
+      } else {
+        ownKeys(Object(source)).forEach(function (key) {
+          Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key));
+        });
+      }
+    }
+
+    return target;
+  }
+
+  var isNull = function isNull(value) {
+    return value === 'undefined' || value === null;
+  };
+
+  var hasSameProps = function hasSameProps(obj1, obj2) {
+    return Object.keys(obj1).every(function (prop) {
+      return obj2.hasOwnProperty(prop);
+    });
+  };
+
+  var hasValidItemsType = function hasValidItemsType() {
+    var array = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : [];
+    return array.every(function (item) {
+      return typeof item === 'string';
+    });
+  };
+
+  var convertArrayToObject = function convertArrayToObject() {
+    var array = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : [];
+    return array.reduce(function (obj, item) {
+      return _objectSpread2(_objectSpread2({}, obj), {}, _defineProperty({}, item, item));
+    }, {});
+  };
+
+  var defaults = {
+    storage: 'localStorage',
+    blacklist: {}
+  };
+  var storeConfig = function storeConfig() {
+    return defaults;
+  };
+
+  var setStorage = function setStorage(config) {
+    if (config.hasOwnProperty('storage')) {
+      defaults.storage = config.storage;
+    }
+
+    if (config.hasOwnProperty('blacklist')) {
+      if (!hasValidItemsType(config.blacklist)) {
+        throw new Error('Backlist item type should be string');
+      }
+
+      defaults.blacklist = convertArrayToObject(config.blacklist);
+    }
+
+    if (config.hasOwnProperty('whitelist')) {
+      if (!hasValidItemsType(config.whitelist)) {
+        throw new Error('Whitelist item type should be string');
+      }
+
+      defaults.whitelist = convertArrayToObject(config.whitelist);
+    }
+  };
+
+  var getStorage = function getStorage() {
+    return window[defaults.storage];
+  };
+
+  var getLocalStore = function getLocalStore() {
+    try {
+      return JSON.parse(getStorage().getItem('reduxStore'));
+    } catch (e) {
+      return {};
+    }
+  };
+
+  var filterBlacklist = function filterBlacklist(state) {
+    var localState = _objectSpread2({}, state);
+
+    var _storeConfig = storeConfig(),
+        blacklist = _storeConfig.blacklist;
+
+    Object.keys(state).forEach(function (value) {
+      if (blacklist[value]) {
+        localState[value] = undefined;
+      }
+    });
+    return localState;
+  };
+
+  var filterWhitelist = function filterWhitelist(state) {
+    var localState = {};
+
+    var _storeConfig2 = storeConfig(),
+        whitelist = _storeConfig2.whitelist;
+
+    Object.keys(state).forEach(function (value) {
+      if (whitelist[value]) {
+        localState[value] = state[value];
+      }
+    });
+    return localState;
+  };
+
+  var getStoreToPersist = function getStoreToPersist(store) {
+    if (storeConfig().whitelist) {
+      return filterWhitelist(store.getState());
+    }
+
+    return filterBlacklist(store.getState());
+  };
+
+  var setLocalStore = function setLocalStore(store) {
+    try {
+      return getStorage().setItem('reduxStore', JSON.stringify(getStoreToPersist(store)));
+    } catch (e) {
+      return {};
+    }
+  };
+
+  var defineState = function defineState(defaultState) {
+    return function (reducer) {
+      if (getState().hasOwnProperty(reducer)) {
+        var localReducer = getState()[reducer];
+        return hasSameProps(defaultState, localReducer) ? localReducer : defaultState;
+      }
+
+      return defaultState;
+    };
+  };
+  var resetState = function resetState() {
+    return getStorage().removeItem('reduxStore');
+  };
+  var getState = function getState() {
+    return !isNull(getLocalStore()) ? getLocalStore() : {};
+  };
+  var reduxLocalstore = (function (store) {
+    var config = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : null;
+
+    if (config) {
+      setStorage(config);
+    }
+
+    return store.subscribe(function () {
+      return setLocalStore(store);
+    });
+  });
+
+  exports.default = reduxLocalstore;
+  exports.defineState = defineState;
+  exports.getState = getState;
+  exports.resetState = resetState;
+  exports.storeConfig = storeConfig;
+
+  Object.defineProperty(exports, '__esModule', { value: true });
+
+}));
+
+},{}],"reducers/index.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -73210,6 +73263,8 @@ exports.reducers = void 0;
 var _redux = require("redux");
 
 var _songsData = _interopRequireDefault(require("../songsData.json"));
+
+var _reduxLocalstore = require("redux-localstore");
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -73368,7 +73423,7 @@ var reducers = (0, _redux.combineReducers)({
   addNewSongs: addNewSongs
 });
 exports.reducers = reducers;
-},{"redux":"node_modules/redux/es/redux.js","../songsData.json":"songsData.json"}],"store.js":[function(require,module,exports) {
+},{"redux":"node_modules/redux/es/redux.js","../songsData.json":"songsData.json","redux-localstore":"node_modules/redux-localstore/dist/redux-localstore.umd.js"}],"store.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -73380,9 +73435,10 @@ var _redux = require("redux");
 
 var _reducers = require("./reducers");
 
-var store = (0, _redux.createStore)(_reducers.reducers);
+var persistedState = localStorage.getItem('reducers') ? JSON.parse(localStorage.getItem('reducers')) : {};
+var store = (0, _redux.createStore)(_reducers.reducers, persistedState);
 store.subscribe(function () {
-  store.getState();
+  localStorage.setItem('reducers', JSON.stringify(store.getState()));
 });
 var _default = store;
 exports.default = _default;
@@ -73434,7 +73490,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "58463" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "56600" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
