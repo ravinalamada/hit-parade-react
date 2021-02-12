@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import {useSelector, useDispatch} from 'react-redux';
+import {connect} from 'react-redux';
 import { removeCartItem, emptyCart} from '../actions'
 import { AiOutlineDelete } from 'react-icons/ai';
 import styled from 'styled-components';
@@ -27,11 +27,8 @@ const CartItemStyles = styled.div`
 	}
 `;
 
-export default function Cart() {
-  const cartItems = useSelector(state => state.cartItems)
-  const dispatch = useDispatch()
+ function Cart({cartItems,removeCartItem, emptyCart}) {
 	const [total, setTotal] = useState(0);
-  // let total = 0;
 
 	useEffect(() => {
 		const newTotal = cartItems.reduce((total, song) => {
@@ -39,14 +36,13 @@ export default function Cart() {
 			return total;
 		}, 0);
 		setTotal(newTotal);
-    // return total= newTotal;
 	}, [cartItems]);
 
 	function completeOrder() {
 		// show the price somewhere (alert or console)
 		alert(`THANK YOU FOR YOUR ORDER. PLEASE PAY : ${total}`);
 		// empty the cart
-		dispatch(emptyCart());
+		emptyCart();
 	}
 
 	return (
@@ -69,3 +65,10 @@ export default function Cart() {
 		</div>
 	);
 }
+
+const mapToDispatch = {
+  removeCartItem,
+  emptyCart
+}
+export default connect((state) => ({cartItems: state.cartItems}), (mapToDispatch))(Cart)
+

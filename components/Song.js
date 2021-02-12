@@ -1,12 +1,12 @@
-import React, { useContext } from 'react';
+import React from 'react';
 import { useParams, useHistory } from 'react-router-dom';
-import {useSelector} from 'react-redux';
+import {connect} from 'react-redux';
 import { SongPreview } from './Style';
 import { AiOutlineArrowLeft } from 'react-icons/Ai';
+// import { songs } from '../actions';
 
-export default function Song() {
+ function Song({songs}) {
 	const { songId } = useParams();
-  const songs = useSelector(state => state.songs)
 	const history = useHistory();
 
 	const song = songs.find(song => song.id == songId);
@@ -24,3 +24,5 @@ export default function Song() {
 		</div>
 	);
 }
+
+export default connect((state) =>({songs: state.songs}))(Song)

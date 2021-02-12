@@ -1,5 +1,4 @@
 import React from 'react';
-// import { Context } from './Context';
 import SongItem from './SongItem';
 import styled from 'styled-components';
 
@@ -12,7 +11,6 @@ const SongsContainer = styled.ul`
 `;
 
 export default function PopularSongs({songs}) {
-  // console.log(songs);
 
 	function sortSongsByPopularity(songA, songB) {
 		const ratioA = songA.upvotes - songA.downvotes;

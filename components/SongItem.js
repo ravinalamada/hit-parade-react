@@ -1,6 +1,6 @@
-import React, { useContext } from 'react';
+import React from 'react';
 import styled from 'styled-components';
-import { useSelector, useDispatch } from 'react-redux';
+import { connect } from 'react-redux';
 import {upvoteSong, downvoteSong, favoriteSong, addToCart, removeCartItem, } from '../actions/index'
 import { Link } from 'react-router-dom';
 
@@ -42,18 +42,15 @@ const SongItemStyle = styled.div`
 	}
 `;
 
-export default function SongItem({ song }) {
-  const dispatch = useDispatch();
-  const cartItems = useSelector(state => state.cartItems)
+ function SongItem({ song, cartItems,upvoteSong, downvoteSong, favoriteSong, addToCart, removeCartItem, }) {
 
 	function showCartIcon() {
 		const isAlreadyInCart = cartItems.some(item => item.id === song.id);
 		if (isAlreadyInCart) {
-			return <AiTwotoneShopping onClick={() => dispatch(removeCartItem(song.id))} />;
+			return <AiTwotoneShopping onClick={() => removeCartItem(song.id)} />;
 		}
-		return <AiOutlineShopping onClick={() => dispatch(addToCart(song))} />;
+		return <AiOutlineShopping onClick={() => addToCart(song)} />;
 	}
-
 
 	function showFavoriteIcon() {
 		return song.isFavorited ? <AiFillHeart /> : <AiOutlineHeart />;
@@ -61,7 +58,7 @@ export default function SongItem({ song }) {
 
 	return (
 		<SongItemStyle>
-			<div className="heart-icon" onClick={() => dispatch(favoriteSong(song.id))}>
+			<div className="heart-icon" onClick={() => favoriteSong(song.id)}>
 				{showFavoriteIcon()}
 			</div>
 			<div>
@@ -69,10 +66,10 @@ export default function SongItem({ song }) {
 				<div>{song.artist}</div>
 			</div>
 			<div className="votes">
-				{song.upvotes} <AiOutlineArrowUp onClick={() => dispatch(upvoteSong(song.id))} />
+				{song.upvotes} <AiOutlineArrowUp onClick={() => upvoteSong(song.id)} />
 			</div>
 			<div className="votes">
-				{song.downvotes} <AiOutlineArrowDown onClick={() => dispatch(downvoteSong(song.id))} />
+				{song.downvotes} <AiOutlineArrowDown onClick={() => downvoteSong(song.id)} />
 			</div>
 			{showCartIcon()}
 			<div>
@@ -83,3 +80,12 @@ export default function SongItem({ song }) {
 		</SongItemStyle>
 	);
 }
+
+const mapToDispatch = {
+  upvoteSong,
+  downvoteSong,
+  favoriteSong,
+  addToCart,
+  removeCartItem
+}
+export default connect((state) => ({cartItems: state.cartItems}), (mapToDispatch))(SongItem)

@@ -1,5 +1,5 @@
 import React from 'react';
-import {useSelector, useDispatch} from 'react-redux';
+import {connect} from 'react-redux';
 import {addSong} from '../actions'
 import styled from 'styled-components';
 
@@ -23,20 +23,19 @@ const FormStyles = styled.form`
 	}
 `;
 
-export default function AddSong({
+ function AddSong({
+  addSong,
   setTitle,
   setArtist,
   setPrice,
   setStyle,
   setLyrics,
+  styles,
   title,
   artist,
   price,
   style,
   lyrics}) {
-
-  const styles = useSelector(state => state.styles)
-  const dispatch = useDispatch();
 
 	function handleSubmit(e) {
 		e.preventDefault();
@@ -51,7 +50,7 @@ export default function AddSong({
 			downvotes: 0,
 			isFavorited: false,
 		};
-		dispatch(addSong(newSong))  ;
+		addSong(newSong)  ;
 		// reset the form... TODO: find a more elegant way.
 		setTitle('');
 		setArtist('');
@@ -105,3 +104,5 @@ export default function AddSong({
 		</div>
 	);
 }
+
+export default connect((state) => ({styles: state.styles}), ({addSong: addSong}))(AddSong)
